@@ -22,6 +22,7 @@
 		<module>objectfactory</module>
 		<module>objectfactory-mockito</module>
 		<module>objectfactory-example</module>
+    <module>objectfactory-example-testng</module>
 	</modules>
 
 	<build>
