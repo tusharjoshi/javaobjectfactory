@@ -2,15 +2,15 @@ package com.tusharjoshi.javatools.objectfactory;
 
 import org.mockito.stubbing.OngoingStubbing;
 
-public class MockEntry {
-	private ObjectFactory<?> mockFactory = null;
+public class MockEntry<T> {
+	private ObjectFactory<T> mockFactory = null;
 	private OngoingStubbing<Object> stubbing = null;
 
-	public MockEntry(ObjectFactory<?> mockFactory) {
+	public MockEntry(ObjectFactory<T> mockFactory) {
 		this.mockFactory = mockFactory;
 	}
 
-	public ObjectFactory<?> getMockFactory() {
+	public ObjectFactory<T> getMockFactory() {
 		return mockFactory;
 	}
 

@@ -11,7 +11,7 @@ public class ObjectFactory<T> {
 	}
 
 	public static <T> ObjectFactory<T> build(Class<T> sourceClass) {
-		return new ObjectFactory<T>(sourceClass);
+		return new ObjectFactory<>(sourceClass);
 	}
 
 	public ObjectFactory<T> withTypes(Class<?>... types) {
@@ -39,7 +39,7 @@ public class ObjectFactory<T> {
 	public T create() {
 		
 		if( null == sourceClass) {
-			throw new RuntimeException("No class defination");
+			throw new ObjectFactoryException("No class defination");
 		}
 		
 		if( null == types ) {
@@ -55,7 +55,7 @@ public class ObjectFactory<T> {
 		try {
 			target = sourceCLass.newInstance();
 		} catch (Exception e) {
-			throw new RuntimeException(e);
+			throw new ObjectFactoryException(e);
 		}
 		return target;
 	}
@@ -65,7 +65,7 @@ public class ObjectFactory<T> {
 		try {
 			target = sourceCLass.getConstructor(types).newInstance(args);
 		} catch (Exception e) {
-			throw new RuntimeException(e);
+			throw new ObjectFactoryException(e);
 		}
 		return target;
 	}
