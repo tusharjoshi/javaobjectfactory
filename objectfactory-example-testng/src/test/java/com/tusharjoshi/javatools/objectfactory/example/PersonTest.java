@@ -1,14 +1,15 @@
 package com.tusharjoshi.javatools.objectfactory.example;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.powermock.modules.testng.PowerMockTestCase;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
-public class PersonTest {
+public class PersonTest extends PowerMockTestCase {
 
   private Person target;
   
-  @Before
+  @BeforeMethod
   public void setUp() {
     target = new Person();
   }

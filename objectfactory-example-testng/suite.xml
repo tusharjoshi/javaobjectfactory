@@ -5,6 +5,7 @@
     <classes>
       <class name="com.tusharjoshi.javatools.objectfactory.example.BusinessLogicTest" />
       <class name="com.tusharjoshi.javatools.objectfactory.example.PersonServiceTest" />
+      <class name="com.tusharjoshi.javatools.objectfactory.example.PersonTest" />
     </classes>
   </test>
 </suite>
