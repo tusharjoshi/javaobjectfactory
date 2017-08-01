@@ -64,9 +64,15 @@ public class ObjectFactoryTest {
       throw new ObjectFactoryException("");
     }
 
+    @SuppressWarnings("unused")
     public ObjectWithException(String param) {
       this.param = param;
-      throw new ObjectFactoryException("");
+      try {
+        int x = 0;
+        int y = 23/x;
+      } catch( Exception e) {
+        throw new ObjectFactoryException("");
+      }
     }
   }
 
