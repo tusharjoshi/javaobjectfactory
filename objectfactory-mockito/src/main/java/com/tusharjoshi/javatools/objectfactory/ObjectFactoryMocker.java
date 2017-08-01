@@ -13,7 +13,7 @@ public class ObjectFactoryMocker {
 
 	private static final int INDEX_FIRST = 0;
 	private static final int INDEX_SECOND = 1;
-	private static Map<Class<?>, MockEntry<?>> mockMap = new HashMap<>();
+	private Map<Class<?>, MockEntry> mockMap = new HashMap<Class<?>, MockEntry>();
 
 	private ObjectFactoryMocker() {
 		PowerMockito.mockStatic(ObjectFactory.class);
@@ -23,13 +23,13 @@ public class ObjectFactoryMocker {
 		return new ObjectFactoryMocker();
 	}
 
-	public ObjectFactoryMocker when(Class<?> sourceClass, Object... args) {
-		MockEntry<?> mockEntry = getMockEntry(sourceClass);
+	public <T> ObjectFactoryMocker when(Class<T> sourceClass, Object... args) {
+		MockEntry mockEntry = getMockEntry(sourceClass);
 		stubReturnTypes(mockEntry, args);
 		return this;
 	}
 
-	private void stubReturnTypes(MockEntry<?> mockEntry, Object... args) {
+	private void stubReturnTypes(MockEntry mockEntry, Object... args) {
 		OngoingStubbing<Object> ongoingStubbing = mockEntry.getStubbing();
 		if (null == ongoingStubbing) {
 			ongoingStubbing = createOngoingStupWithFirstArgValue(mockEntry, args[0]);
@@ -39,7 +39,7 @@ public class ObjectFactoryMocker {
 		}		
 	}
 
-	public OngoingStubbing<Object> createOngoingStupWithFirstArgValue(MockEntry<?> mockEntry, Object arg) {
+	public OngoingStubbing<Object> createOngoingStupWithFirstArgValue(MockEntry mockEntry, Object arg) {
 		@SuppressWarnings("rawtypes")
 		ObjectFactory mockFactory = mockEntry.getMockFactory();
 		OngoingStubbing<Object> ongoingStubbing = Mockito.when((mockFactory).create()).thenReturn(arg);
@@ -57,8 +57,8 @@ public class ObjectFactoryMocker {
 		}
 	}
 
-	private <T> MockEntry<?> getMockEntry(Class<T> sourceClass) {
-		MockEntry<?> mockEntry = mockMap.get(sourceClass);
+	private <T> MockEntry getMockEntry(Class<T> sourceClass) {
+		MockEntry mockEntry = mockMap.get(sourceClass);
 		if (null == mockEntry) {
 			mockEntry = createMockEntry(sourceClass);
 		}
@@ -67,9 +67,8 @@ public class ObjectFactoryMocker {
 
 	@SuppressWarnings({ "rawtypes" })
 	private <T> MockEntry createMockEntry(Class<T> sourceClass) {
-		@SuppressWarnings("unchecked")
-        ObjectFactory<T> mockFactory = (ObjectFactory<T>) Mockito.mock(ObjectFactory.class);
-		MockEntry<?> mockEntry = new MockEntry<T>(mockFactory);
+		ObjectFactory mockFactory = Mockito.mock(ObjectFactory.class);
+		MockEntry mockEntry = new MockEntry(mockFactory);
 		mockMap.put(sourceClass, mockEntry);
 		stubFactoryMethods(sourceClass, mockFactory);
 		return mockEntry;
