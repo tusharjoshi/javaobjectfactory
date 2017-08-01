@@ -71,7 +71,7 @@ public class ObjectFactoryTest {
         int x = 0;
         int y = 23/x;
       } catch( Exception e) {
-        throw new ObjectFactoryException("");
+        throw new ObjectFactoryException("", e);
       }
     }
   }
