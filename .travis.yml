@@ -3,7 +3,6 @@ cache:
     – $HOME/.m2
     – $HOME/.sonar/cache
 
-env:
 jdk: oraclejdk8
 language: java
 script: mvn clean install sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
