@@ -3,7 +3,7 @@
 [![](https://sonarcloud.io/api/badges/measure?key=com.tusharjoshi.javatools%3Aobjectfactory-projects&metric=ncloc)](https://sonarcloud.io/dashboard?id=com.tusharjoshi.javatools%3Aobjectfactory-projects) 
 [![](https://sonarcloud.io/api/badges/measure?key=com.tusharjoshi.javatools%3Aobjectfactory-projects&metric=bugs)](https://sonarcloud.io/dashboard?id=com.tusharjoshi.javatools%3Aobjectfactory-projects) 
 [![](https://sonarcloud.io/api/badges/measure?key=com.tusharjoshi.javatools%3Aobjectfactory-projects&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=com.tusharjoshi.javatools%3Aobjectfactory-projects) 
-[![](https://sonarcloud.io/api/badges/measure?key=com.tusharjoshi.javatools%3Aobjectfactory-projects&metric=code_smells)](https://sonarcloud.io/project/issues?id=nlog&resolved=false&types=CODE_SMELL) 
+[![](https://sonarcloud.io/api/badges/measure?key=com.tusharjoshi.javatools%3Aobjectfactory-projects&metric=code_smells)](https://sonarcloud.io/project/issues?id=com.tusharjoshi.javatools%3Aobjectfactory-projects&resolved=false&types=CODE_SMELL) 
 [![](https://sonarcloud.io/api/badges/measure?key=com.tusharjoshi.javatools%3Aobjectfactory-projects&metric=duplicated_lines_density)](https://sonarcloud.io/component_measures/domain/Duplications?id=com.tusharjoshi.javatools%3Aobjectfactory-projects) 
 [![](https://sonarcloud.io/api/badges/measure?key=com.tusharjoshi.javatools%3Aobjectfactory-projects&metric=sqale_debt_ratio)](https://sonarcloud.io/dashboard/?id=com.tusharjoshi.javatools%3Aobjectfactory-projects) 
 
