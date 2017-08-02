@@ -10,6 +10,11 @@ public class ObjectCreatorTest {
   public void setUp() {
 
   }
+  
+  @Test 
+  public void testObjectCreatorExt() {
+    Assert.assertNotNull(new ObjectCreatorExt());
+  }
 
   @Test
   public void testCreate() {
@@ -36,7 +41,7 @@ public class ObjectCreatorTest {
       Assert.fail();
     } catch (ObjectFactoryException oe) {
       Assert.assertEquals(String.format(
-          "Object could not be instantiated for class %s.",
+          "Object could not be instantiated for class %s",
           InstantiationExceptionClass.class.getName()), oe.getMessage());
     }
   }
@@ -114,6 +119,12 @@ public class ObjectCreatorTest {
       this.name = name;
     }
 
+  }
+  
+  public static class ObjectCreatorExt extends ObjectCreator {
+    public ObjectCreatorExt() {
+      super();
+    }
   }
 
 }

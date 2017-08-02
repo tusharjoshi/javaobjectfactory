@@ -1,8 +1,8 @@
 package com.tusharjoshi.javatools.objectfactory;
 
 public class ObjectCreator {
-
-  private ObjectCreator() {
+  
+  protected ObjectCreator() {
     // utility class
   }
 
