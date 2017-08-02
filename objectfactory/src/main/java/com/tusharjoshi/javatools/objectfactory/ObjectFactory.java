@@ -43,31 +43,11 @@ public class ObjectFactory<T> {
 		}
 		
 		if( null == types ) {
-			return create(sourceClass);
+			return ObjectCreator.create(sourceClass);
 		} else {
-			return create(sourceClass, types, args);
+			return ObjectCreator.create(sourceClass, types, args);
 		}
 		
-	}
-
-	private static <T> T create(Class<T> sourceCLass) {
-		T target;
-		try {
-			target = sourceCLass.newInstance();
-		} catch (Exception e) {
-			throw new ObjectFactoryException(e);
-		}
-		return target;
-	}
-
-	private static <T> T create(Class<T> sourceCLass, Class<?>[] types, Object[] args) {
-		T target;
-		try {
-			target = sourceCLass.getConstructor(types).newInstance(args);
-		} catch (Exception e) {
-			throw new ObjectFactoryException(e);
-		}
-		return target;
 	}
 
 }
