@@ -4,8 +4,8 @@
   <test name="BasicTests">
     <classes>
       <class name="com.tusharjoshi.javatools.objectfactory.example.BusinessLogicTest" />
-      <class name="com.tusharjoshi.javatools.objectfactory.example.PersonServiceTest" />
-      <class name="com.tusharjoshi.javatools.objectfactory.example.PersonTest" />
+      <class name="com.tusharjoshi.javatools.objectfactory.example.AnimalServiceTest" />
+      <class name="com.tusharjoshi.javatools.objectfactory.example.AnimalTest" />
     </classes>
   </test>
 </suite>

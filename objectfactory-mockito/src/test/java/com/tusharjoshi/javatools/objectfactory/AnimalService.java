@@ -1,6 +1,6 @@
 package com.tusharjoshi.javatools.objectfactory;
 
-public class PersonService {
+public class AnimalService {
 	
 	public static Person generatePerson() {
 		return ObjectFactory.build(Person.class)

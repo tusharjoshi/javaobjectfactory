@@ -11,25 +11,25 @@ import com.tusharjoshi.javatools.objectfactory.ObjectFactory;
 import com.tusharjoshi.javatools.objectfactory.ObjectFactoryMocker;
 
 @PrepareForTest({ ObjectFactory.class })
-public class PersonServiceTest extends PowerMockTestCase {
+public class AnimalServiceTest extends PowerMockTestCase {
 
-	private PersonService target;
-	private Person mockPerson;
+	private AnimalService target;
+	private Animal mockAnimal;
 
 	@BeforeMethod
 	public void setUp() {
-		mockPerson = Mockito.mock(Person.class);
+		mockAnimal = Mockito.mock(Animal.class);
 
-		ObjectFactoryMocker.mock().when(Person.class, mockPerson);
+		ObjectFactoryMocker.mock().when(Animal.class, mockAnimal);
 
-		target = new PersonService();
+		target = new AnimalService();
 	}
 
 	@Test
 	public void testEnrollPerson() {
 
-		Person person = target.enrollPerson();
+		Animal animal = target.fetchAnimal();
 		
-		Assert.assertEquals(mockPerson, person);
+		Assert.assertEquals(mockAnimal, animal);
 	}
 }

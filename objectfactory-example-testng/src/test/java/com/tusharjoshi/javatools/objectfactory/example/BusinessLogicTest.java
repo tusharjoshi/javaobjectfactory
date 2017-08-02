@@ -14,26 +14,26 @@ import com.tusharjoshi.javatools.objectfactory.ObjectFactoryMocker;
 public class BusinessLogicTest extends PowerMockTestCase {
 	
 	private BusinessLogic target;
-	private PersonService mockPersonService;
-	private Person mockPerson;
+	private AnimalService mockAnimalService;
+	private Animal mockAnimal;
 	
 	@BeforeMethod
 	public void setUp() {
-		mockPersonService = Mockito.mock(PersonService.class);
-		mockPerson = Mockito.mock(Person.class);
+		mockAnimalService = Mockito.mock(AnimalService.class);
+		mockAnimal = Mockito.mock(Animal.class);
 		
-		Mockito.when(mockPersonService.enrollPerson()).thenReturn(mockPerson);
+		Mockito.when(mockAnimalService.fetchAnimal()).thenReturn(mockAnimal);
 		ObjectFactoryMocker.mock()
-			.when(PersonService.class, mockPersonService);
+			.when(AnimalService.class, mockAnimalService);
 		
 		target = new BusinessLogic();
 	}
 
 	@Test
 	public void testSomeLogic() {
-		Person person = target.someLogic();
+		Animal animal = target.someLogic();
 		
-		Assert.assertEquals(person, mockPerson);
+		Assert.assertEquals(animal, mockAnimal);
 		
 	}
 }

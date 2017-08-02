@@ -2,12 +2,12 @@ package com.tusharjoshi.javatools.objectfactory.example;
 
 import com.tusharjoshi.javatools.objectfactory.ObjectFactory;
 
-public class PersonService {
+public class AnimalService {
 
-  public Person enrollPerson() {
-      return ObjectFactory.build(Person.class)
+  public Animal fetchAnimal() {
+      return ObjectFactory.build(Animal.class)
               .withTypes(String.class, int.class)
-              .withArgs("John Doe", 29)
+              .withArgs("Mammal", 4)
               .create();
   }
 

@@ -9,7 +9,7 @@ public class PersonServiceTest {
 	@Test
 	public void testPersonServiceReal() {
 
-		Person person = PersonService.generatePerson();
+		Person person = AnimalService.generatePerson();
 	
 		Assert.assertNotNull(person);
 		Assert.assertEquals(person.getName(), "John Snow");

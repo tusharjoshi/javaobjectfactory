@@ -4,15 +4,15 @@ import com.tusharjoshi.javatools.objectfactory.ObjectFactory;
 
 public class BusinessLogic {
 	
-	private PersonService personService;
+	private AnimalService personService;
 	
 	public BusinessLogic() {
-		personService = ObjectFactory.build(PersonService.class)
+		personService = ObjectFactory.build(AnimalService.class)
 				.create();
 	}
 	
-	public Person someLogic() {
-		return personService.enrollPerson();
+	public Animal someLogic() {
+		return personService.fetchAnimal();
 	}
 
 }

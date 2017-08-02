@@ -55,9 +55,9 @@ public class ObjectFactoryTest {
 			.when(Person.class, mockPerson1, mockPerson2)
 			.when(Vehicle.class, mockVehicle);
 
-		Person person1 = PersonService.generatePerson();
+		Person person1 = AnimalService.generatePerson();
 
-		Person person2 = PersonService.generatePerson();
+		Person person2 = AnimalService.generatePerson();
 
 		Vehicle vehicle1 = VehicleService.makeVehicle();
 
@@ -84,13 +84,13 @@ public class ObjectFactoryTest {
 			.when(Person.class, mockPerson3, mockPerson4)
 			.when(Vehicle.class, mockVehicle2);
 
-		Person person1 = PersonService.generatePerson();
+		Person person1 = AnimalService.generatePerson();
 
-		Person person2 = PersonService.generatePerson();
+		Person person2 = AnimalService.generatePerson();
 
-		Person person3 = PersonService.generatePerson();
+		Person person3 = AnimalService.generatePerson();
 
-		Person person4 = PersonService.generatePerson();
+		Person person4 = AnimalService.generatePerson();
 
 		Vehicle vehicle1 = VehicleService.makeVehicle();
 
