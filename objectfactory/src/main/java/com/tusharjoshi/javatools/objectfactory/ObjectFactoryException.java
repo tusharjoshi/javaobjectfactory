@@ -2,12 +2,6 @@ package com.tusharjoshi.javatools.objectfactory;
 
 public class ObjectFactoryException extends RuntimeException {
 
-  private static final String COMMA = ",";
-
-  private static final String CLOSE_PAREN = ")";
-
-  private static final String OPEN_PAREN = "(";
-
   private static final String AND_USING_VALUES = " and using values ";
 
   private static final String USING_CONSTRUCTOR_WITH_TYPES = " using constructor with types ";
@@ -46,40 +40,14 @@ public class ObjectFactoryException extends RuntimeException {
     StringBuilder buffer = new StringBuilder();
     buffer.append(String.format(GENERIC_MESSAGE, name));
     buffer.append(USING_CONSTRUCTOR_WITH_TYPES);
-    buffer.append(generateTypesString(types));
-    buffer.append(generateArgsString(args));
-    return buffer.toString();
-  }
-  
-  private static String generateTypesString(Class<?>[] types) {
-    StringBuilder buffer = new StringBuilder();
-    buffer.append(OPEN_PAREN);
-    if( types.length > 1 ) {
-      for( Class<?> typeClass : types ) {
-        buffer.append(typeClass.getName());
-        buffer.append(COMMA);
-      }
-      buffer.replace(buffer.length()-1, buffer.length(), CLOSE_PAREN);
-    } else {
-      buffer.append(CLOSE_PAREN);
-    }
-    return buffer.toString();
-  }
-  
-  private static String generateArgsString(Object[] args) {
-    StringBuilder buffer = new StringBuilder();
+    buffer.append(ParameterJoiner.join(types, ObjectFactoryException::getClassName));
     buffer.append(AND_USING_VALUES);
-    buffer.append(OPEN_PAREN);
-    if( args.length > 1 ) {
-      for( Object arg : args ) {
-        buffer.append(arg.toString());
-        buffer.append(COMMA);
-      }
-      buffer.replace(buffer.length()-1, buffer.length(), CLOSE_PAREN);
-    } else {
-      buffer.append(CLOSE_PAREN);
-    }
+    buffer.append(ParameterJoiner.join(args, Object::toString));
     return buffer.toString();
+  }
+  
+  private static String getClassName(Class<?> classObj) {
+    return classObj.getName();
   }
 
 }

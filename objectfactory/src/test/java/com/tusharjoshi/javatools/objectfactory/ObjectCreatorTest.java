@@ -1,19 +1,13 @@
 package com.tusharjoshi.javatools.objectfactory;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 public class ObjectCreatorTest {
-
-  @Before
-  public void setUp() {
-
-  }
   
   @Test 
   public void testObjectCreatorExt() {
-    Assert.assertNotNull(new ObjectCreatorExt());
+    Assert.assertNotNull(new ObjectCreator(){});
   }
 
   @Test
@@ -53,7 +47,7 @@ public class ObjectCreatorTest {
       Assert.fail();
     } catch (ObjectFactoryException oe) {
       Assert.assertEquals(String.format(
-          "Object could not be instantiated for class %s using constructor with types (int,float) and using values (2,3.4)",
+          "Object could not be instantiated for class %s using constructor with types (int, float) and using values (2, 3.4)",
           InstantiationExceptionClass.class.getName()), oe.getMessage());
     }
   }
@@ -77,7 +71,7 @@ public class ObjectCreatorTest {
       Assert.fail();
     } catch (ObjectFactoryException oe) {
       Assert.assertEquals(String.format(
-          "Object could not be instantiated for class %s using constructor with types (int,float) and using values (2,3.4)",
+          "Object could not be instantiated for class %s using constructor with types (int, float) and using values (2, 3.4)",
           String.class.getName()), oe.getMessage());
     }
   }
@@ -119,12 +113,6 @@ public class ObjectCreatorTest {
       this.name = name;
     }
 
-  }
-  
-  public static class ObjectCreatorExt extends ObjectCreator {
-    public ObjectCreatorExt() {
-      super();
-    }
   }
 
 }
