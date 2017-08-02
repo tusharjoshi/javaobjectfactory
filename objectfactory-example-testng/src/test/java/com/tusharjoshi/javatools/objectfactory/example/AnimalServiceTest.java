@@ -26,7 +26,7 @@ public class AnimalServiceTest extends PowerMockTestCase {
 	}
 
 	@Test
-	public void testEnrollPerson() {
+	public void testFetchAnimal() {
 
 		Animal animal = target.fetchAnimal();
 		
