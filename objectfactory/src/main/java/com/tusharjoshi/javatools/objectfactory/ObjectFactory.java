@@ -1,8 +1,11 @@
 package com.tusharjoshi.javatools.objectfactory;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 public class ObjectFactory<T> {
 
-	private Class<T> sourceClass;
+	private final Class<T> sourceClass;
 	private Class<?>[] types;
 	private Object[] args;
 
@@ -27,19 +30,17 @@ public class ObjectFactory<T> {
 		return this;
 	}
 
-	private void createTypesFromArgValues(Object... args) {
-		types = new Class<?>[args.length];
-		int index = 0;
-		for( Object obj : args) {
-			types[index] = obj.getClass();
-			index++;
-		}
+	private void createTypesFromArgValues(Object... args) {		
+		types = Arrays.stream(args)
+		    .map(ClassMapper::mapToClass)
+		    .collect(Collectors.toList())
+		    .toArray(new Class[] {});
 	}
 
 	public T create() {
 		
 		if( null == sourceClass) {
-			throw new ObjectFactoryException("No class defination");
+			throw ObjectFactoryException.nullSourceClassException();
 		}
 		
 		if( null == types ) {
