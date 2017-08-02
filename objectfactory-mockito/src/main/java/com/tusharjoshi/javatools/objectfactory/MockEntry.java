@@ -16,18 +16,6 @@ public class MockEntry<T> {
     stubFactoryMethods(sourceClass);
   }
 
-  public ObjectFactory<T> getMockFactory() {
-    return mockFactory;
-  }
-
-  public OngoingStubbing<T> getStubbing() {
-    return stubbing;
-  }
-
-  public void setStubbing(OngoingStubbing<T> stubbing) {
-    this.stubbing = stubbing;
-  }
-
   public void stubReturnTypes(T[] args) {
     int index = INDEX_FIRST;
     if (null == stubbing) {
