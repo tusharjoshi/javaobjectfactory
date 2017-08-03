@@ -21,13 +21,10 @@
 
     <!-- Sonar -->
     <jacoco.version>0.7.9</jacoco.version>
-    <sonar.maven.plugin.version>3.0.1</sonar.maven.plugin.version>
-    <!--  sonar.jacoco.listeners.version>4.9.0.9858</sonar.jacoco.listeners.version -->
     <sonar.jacoco.listeners.version>4.12.0.11033</sonar.jacoco.listeners.version>    
     <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
     <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
     <sonar.jacoco.reportPaths>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPaths>
-    <sonar.junit.reportsPath>${project.basedir}/target/surefire-reports</sonar.junit.reportsPath>
   </properties>
 
   <modules>
